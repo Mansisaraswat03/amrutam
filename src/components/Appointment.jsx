@@ -91,37 +91,43 @@ export const Appointment = () => {
             />
           </div>
           <div className="overflow-hidden relative">
-          <div
-            className="flex transition-transform duration-500 ease-in-out gap-4"
-            style={{ transform: `translateX(-${currentIndex * 102}%)` }}
-          >
-            {timeSlots.slice(currentIndex, currentIndex + 3).map((slot, index) => (
-                <div
-                  key={index}
-                  className={`cursor-pointer px-4 py-4 rounded-md w-auto  ${
-                    slott === slot ? " bg-leafyGreen" : "border border-gray-300"
-                  }`}
-                  onClick={() => handleSlotClick(slot)}
-                >
-                  <h1
-                    className={`text-sm font-bold ${
-                      slott === slot ? "text-green" : ""
+            <div
+              className="flex transition-transform duration-500 ease-in-out gap-4"
+              style={{ transform: `translateX(-${currentIndex * 102}%)` }}
+            >
+              {timeSlots
+                .slice(currentIndex, currentIndex + 3)
+                .map((slot, index) => (
+                  <div
+                    key={index}
+                    className={`cursor-pointer px-4 py-4 rounded-md w-auto  ${
+                      slott === slot
+                        ? " bg-leafyGreen"
+                        : "border border-gray-300"
                     }`}
+                    onClick={() => handleSlotClick(slot)}
                   >
-                    {slot.day}
-                  </h1>
-                  <p
-                    className={`font-bold ${
-                      slot.slots >= 6 ? "text-gray-400" : ""
-                    } ${slot.slots <= 3 ? "text-red-400" : ""} ${
-                      slot.slots > 4 && slot.slots < 6 ? "text-yellow-400" : ""
-                    }`}
-                  >
-                    {slot.slots} slots
-                  </p>
-                </div>
-              ))}
-          </div>
+                    <h1
+                      className={`text-sm font-bold ${
+                        slott === slot ? "text-green" : ""
+                      }`}
+                    >
+                      {slot.day}
+                    </h1>
+                    <p
+                      className={`font-bold ${
+                        slot.slots >= 6 ? "text-gray-400" : ""
+                      } ${slot.slots <= 3 ? "text-red-400" : ""} ${
+                        slot.slots > 4 && slot.slots < 6
+                          ? "text-yellow-400"
+                          : ""
+                      }`}
+                    >
+                      {slot.slots} slots
+                    </p>
+                  </div>
+                ))}
+            </div>
           </div>
           <div>
             <ChevronRight

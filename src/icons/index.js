@@ -9,3 +9,4 @@ export {GreenTick} from './green-tick';
 export {Calender} from './calender';
 export {Card} from './card';
 export {Cross} from './cross';
+export {Hamburger} from './hamburger';
